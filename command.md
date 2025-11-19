@@ -1,6 +1,9 @@
 1. To add group: sudo **groupadd** developers
 2. To check which group particular user belongs to -> **groups** **user-name** or **id** **user-name**
-3. Give **sudo** group access to the user(username) -> sudo usermod -aG **groupname** **username** example: sudo usermod -aG sudo azureuser
+3. Give **sudo** group access to the user(username) -> 
+   > sudo usermod -aG **groupname** **username** 
+   example: sudo usermod -aG sudo shashikant
+   
 4. To list groups: **getent group** OR **cat /etc/group**
 5. Add user (shashikant)-> **useradd** **shashikant**
 6. List added users-> 
@@ -18,3 +21,12 @@
       > sudo mkdir /home/shashikant
       > sudo chown shashikant:shashikant /home/shashikant
       > sudo chmod 755 /home/shashikant
+
+            **chown** → change ownership
+            **developers:developers** → user:group
+            **/home/developers** → the folder whose ownership you are changing
+13. Delete group:
+      > sudo groupdel groupname
+                  **This deletes the group only if:**
+                          * No user has this group as their primary group
+                          * The group exists in /etc/group
