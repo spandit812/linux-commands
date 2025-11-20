@@ -32,4 +32,27 @@
             * No user has this group as their primary group
             * The group exists in /etc/group
 14. newgrp groupname--> this switches your current group id to the another without loging our or switching user
-      
+
+15. What are binaries?
+    <pre>
+      A compiled program that a computer can execute directly.
+    </pre>
+<pre>
+   How to find where is sleep and stat binary located?
+   which sleep
+   which stat
+</pre>
+<pre>
+   Few binaries are: 
+   ls
+   cat
+   sleep
+   cp
+   mkdir
+</pre>
+16. <pre>docker exec test which sleep
+    docker exec test which stat /bin/sleep
+    docker exec test1 which sleep
+    docker exec test1 which stat /bin/sleep
+    both test and test1 contaiiner refers the same sleep binary (by Inode). But Linux sleep binary Inode will be different. </pre>
+
