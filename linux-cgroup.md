@@ -6,6 +6,11 @@ strings /proc/1/cmdline
   This you can consider as a container
 
   process/1/cgroup
+  process/125/cgroup
+
+  In the linux all processes run in the same global container called /
+  If I run <b>top</b>, it shows all processes running in the machine. but all proceses run the common container, /
+  For the purpose of security, docker gives you feature to run applications in different container.
 
   <img width="686" height="80" alt="image" src="https://github.com/user-attachments/assets/e4e21d78-d618-4e09-be1a-044c8d60d0a8" />
 
