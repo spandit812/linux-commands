@@ -30,5 +30,5 @@ strings /proc/1/cmdline
   <b>Mount</b>, <b>PID</b> are not fully isolated in the container. Only host machines can acess or view the details of the container.
   But, <b>Network</b> namespace of the container is isolated from host machine as well other containers.
   <b>Purpose of isolation of network, is to repeat the port and IP in the container. There will not be any conflict. because both will be in different namespace.</b>
-  <b>So, the network, interprecess communication(IPC) and UTS will be isolated.</b>
+  <b>So, the network, interprecess communication(IPC) and UTS will be isolated. Same hostname or different host name can be used in the container.</b>
 </pre>
