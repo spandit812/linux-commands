@@ -17,5 +17,6 @@ strings /proc/1/cmdline
   <img width="279" height="183" alt="image" src="https://github.com/user-attachments/assets/b42dc155-2e2b-4716-a045-ae427dc9deee" />
   <img width="698" height="333" alt="image" src="https://github.com/user-attachments/assets/9c6eda85-fcd7-4000-8ca7-d8a4761f715d" />
 
+<img width="772" height="325" alt="image" src="https://github.com/user-attachments/assets/4a916e25-1a0c-4be5-87aa-772649aa543b" />
 
 </pre>
