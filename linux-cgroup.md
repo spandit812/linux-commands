@@ -24,4 +24,9 @@ strings /proc/1/cmdline
   Ths gives global processes: ls /proc/
   This gives only processes running in the container: 
   docker exec registry ls /proc/
+
+  <b>Namespaces:</b>
+
+  <b>Mount</b>, <b>PID</b> are not fully isolated in the container. Only host machines can acess or view the details of the container.
+  But, <b>Network</b> namespace of the container is isolated from host machine as well other containers.
 </pre>
