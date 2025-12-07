@@ -19,4 +19,9 @@ strings /proc/1/cmdline
 
 <img width="772" height="325" alt="image" src="https://github.com/user-attachments/assets/4a916e25-1a0c-4be5-87aa-772649aa543b" />
 
+  <b>To see all the processes running in the global container</b>
+  <img width="772" height="325" alt="image" src="https://github.com/user-attachments/assets/df2f2b1d-ce68-49bb-be0f-9ebcf9ab3ddc" />
+  Ths gives global processes: ls /proc/
+  This gives only processes running in the container: 
+  docker exec registry ls /proc/
 </pre>
