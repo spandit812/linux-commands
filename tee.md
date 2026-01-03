@@ -3,7 +3,7 @@
       echo welcome | tee abc.txt def.txt
 <b>2. To write output of the command:</b>
       whoami | tee login
-<b>2. To write multiple lines into a file :</b>
+<b>3. To write multiple lines usig EOF into a file :</b>
       tee exaple.txt 0<< EOF
                   THIS IS FIRST LINE
                   THIS IS SECOND LINE
