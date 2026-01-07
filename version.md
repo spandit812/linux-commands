@@ -1,6 +1,6 @@
 ---
-lsb_release -a 
-cat /etc/os-release
+1. lsb_release -a 
+2. cat /etc/os-release
 
 Check the linux standard base (LSB) linux distribution version.
 
