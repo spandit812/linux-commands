@@ -86,5 +86,108 @@ r = 4
 w = 2  
 x = 1  
 
+**One small extra tip (good habit)**  
+When you see permissions, always read them as:  
+OWNER | GROUP | OTHERS  
+Left → Right  
 
-Just add them.
+Just add them.  
+
+---
+
+**rw-r--r-- = 644 in this owner has read and write but group does have write permission then ultimately user would not be able to write the thing to file. Am I correct?**  
+
+Who actually writes to a file?  
+Linux checks permissions in this order:  
+Is the user the OWNER? → use owner permissions  
+Else, is the user in the GROUP? → use group permissions  
+Else → use others permissions  
+🚨 Linux does NOT combine permissions  
+It stops at the first match.  
+
+2️⃣ Apply this rule to rw-r--r-- (644)  
+rw-   r--   r--  
+│     │     │  
+Owner Group Others  
+Case 1: You are the owner  
+Owner permissions apply  
+rw- → ✅ you CAN write  
+➡️ Group permissions are ignored  
+Case 2: You are not the owner, but in the group  
+Group permissions apply  
+r-- → ❌ you CANNOT write  
+Case 3: You are neither owner nor in group  
+Others permissions apply  
+r-- → ❌ you CANNOT write  
+3️⃣ Important rule to remember 🧠  
+
+
+Only ONE permission set applies — never all three.
+
+---
+**chmod u+w vs chmod g+w**  
+
+1️⃣ What do u and g mean?  
+Symbol	Means  
+u	user (owner)  
+g	group  
+o	others  
+a	all (u + g + o)  
+2️⃣ What does +w mean?  
+Symbol	Action  
++	add permission  
+-	remove permission  
+=	set exactly  
+Permission	Meaning  
+r	read  
+w	write  
+x	execute  
+3️⃣ chmod u+w (Owner gets write)  
+Command  
+chmod u+w file.txt  
+Meaning  
+“Add write permission to the owner of the file.”  
+Example  
+Before:  
+r--r--r--  
+After:  
+rw-r--r--  
+✔ Owner can now write  
+❌ Group unchanged  
+❌ Others unchanged  
+4️⃣ chmod g+w (Group gets write)  
+Command  
+chmod g+w file.txt  
+Meaning  
+“Add write permission to the group of the file.”  
+Example  
+Before:  
+rw-r--r--  
+After:  
+rw-rw-r--  
+✔ Group members can write  
+✔ Owner unchanged  
+❌ Others unchanged  
+5️⃣ Side-by-side comparison  
+Command	Who gets write?	Result example  
+chmod u+w	Owner	rw-r--r--  
+chmod g+w	Group	rw-rw-r--  
+6️⃣ Why symbolic chmod is powerful  
+Instead of:  
+chmod 664 file.txt  
+You can safely do:  
+chmod g+w file.txt  
+✔ No need to calculate numbers  
+✔ No risk of accidentally changing others’ permissions  
+7️⃣ Common real-world examples    
+Remove write from group 
+chmod g-w file.txt  
+Add execute to owner  
+chmod u+x script.sh  
+Make script executable by everyone  
+chmod a+x script.sh  
+8️⃣ Kubernetes / DevOps relevance  
+Private keys  
+chmod u+rw,go-rwx dev-user.key  
+Scripts in CI/CD  
+chmod u+x deploy.sh  
